@@ -8,7 +8,7 @@ NOTE: neo-php still on heavy development. Do not use on production yet.
 The easiest way to install neo-php library is using composer
 
 ```
-composer require dyned/neo-php
+composer require nexgenenglish/neo-php
 ```
 
 That's it!
