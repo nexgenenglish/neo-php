@@ -1,5 +1,5 @@
 # PHP Library for Neo API Ecosystem 
-[![Build Status](https://travis-ci.org/jsilalahi/neo-php.svg?branch=master)](https://travis-ci.org/jsilalahi/neo-php)
+[![Build Status](https://travis-ci.org/nexgenenglish/neo-php.svg?branch=master)](https://travis-ci.org/nexgenenglish/neo-php)
 
 NOTE: neo-php still on heavy development. Do not use on production yet.
 
