@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "DynEd\\Neo\\": "src/"
+            "Neo\\": "src/"
         }
     },
     "require": {
