@@ -1,6 +1,6 @@
 <?php
 
-namespace DynEd\Neo\Exceptions;
+namespace Neo\Exceptions;
 
 class ValidationException extends \Exception {
 

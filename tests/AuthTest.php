@@ -1,10 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use DynEd\Neo\Auth\Auth;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
-use DynEd\Neo\Exceptions\ValidationException;
-use DynEd\Neo\Auth\Token;
+use Neo\Auth\Auth;
+use Neo\HttpClients\GuzzleHttpClient;
+use Neo\Exceptions\ValidationException;
+use Neo\Auth\Token;
 use Tightenco\Collect\Support\Collection;
 
 class AuthTest extends TestCase

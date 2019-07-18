@@ -1,8 +1,8 @@
 <?php
 
-namespace DynEd\Neo\Interim;
+namespace Neo\Interim;
 
-use DynEd\Neo\HttpClients\HttpClientInterface;
+use Neo\HttpClients\HttpClientInterface;
 
 class Applicant {
 

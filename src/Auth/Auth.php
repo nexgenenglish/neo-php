@@ -1,10 +1,10 @@
 <?php
 
-namespace DynEd\Neo\Auth;
+namespace Neo\Auth;
 
-use DynEd\Neo\AbstractApi;
-use DynEd\Neo\Exceptions\ConfigurationException;
-use DynEd\Neo\Exceptions\ValidationException;
+use Neo\AbstractApi;
+use Neo\Exceptions\ConfigurationException;
+use Neo\Exceptions\ValidationException;
 use Rakit\Validation\Validator;
 
 class Auth extends AbstractApi

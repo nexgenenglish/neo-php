@@ -1,9 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use DynEd\Neo\Auth\Auth;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
-use DynEd\Neo\Study\Student;
+use Neo\Auth\Auth;
+use Neo\HttpClients\GuzzleHttpClient;
+use Neo\Study\Student;
 
 class StudyStudentTest extends TestCase
 {

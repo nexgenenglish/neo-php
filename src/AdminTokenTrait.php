@@ -1,9 +1,9 @@
 <?php
 
-namespace DynEd\Neo;
+namespace Neo;
 
-use DynEd\Neo\Auth\Auth;
-use DynEd\Neo\Auth\Token;
+use Neo\Auth\Auth;
+use Neo\Auth\Token;
 
 trait AdminTokenTrait
 {

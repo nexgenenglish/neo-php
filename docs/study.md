@@ -10,9 +10,9 @@ Use this method to retrieve students of organisation from NSA. This method accep
 ```php
 <?php
 
-use DynEd\Neo\Auth\Token;
-use DynEd\Neo\Study\Student;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
+use Neo\Auth\Token;
+use Neo\Study\Student;
+use Neo\HttpClients\GuzzleHttpClient;
 
 // Setup HTTP client
 $httpClient = new GuzzleHttpClient([
@@ -46,9 +46,9 @@ Use this method to retrieve student's summary of study. This method accept stude
 ```php
 <?php
 
-use DynEd\Neo\Auth\Token;
-use DynEd\Neo\Study\Student;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
+use Neo\Auth\Token;
+use Neo\Study\Student;
+use Neo\HttpClients\GuzzleHttpClient;
 
 // Setup HTTP client
 $httpClient = new GuzzleHttpClient([

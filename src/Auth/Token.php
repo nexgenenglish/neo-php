@@ -1,6 +1,6 @@
 <?php
 
-namespace DynEd\Neo\Auth;
+namespace Neo\Auth;
 
 class Token
 {

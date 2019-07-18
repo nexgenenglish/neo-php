@@ -1,10 +1,10 @@
 <?php
 
-namespace DynEd\Neo\Study;
+namespace Neo\Study;
 
-use DynEd\Neo\AbstractApi;
-use DynEd\Neo\AdminTokenTrait;
-use DynEd\Neo\Exceptions\ValidationException;
+use Neo\AbstractApi;
+use Neo\AdminTokenTrait;
+use Neo\Exceptions\ValidationException;
 use Rakit\Validation\Validator;
 
 class Student extends AbstractApi
@@ -32,7 +32,7 @@ class Student extends AbstractApi
      * @param $uic
      * @param $page
      * @return mixed|null
-     * @throws \DynEd\Neo\Exceptions\ConfigurationException
+     * @throws \Neo\Exceptions\ConfigurationException
      */
     public function organisation($uic, $page = 1)
     {
@@ -66,8 +66,8 @@ class Student extends AbstractApi
      * @param $username
      * @param array $period
      * @return mixed|null
-     * @throws \DynEd\Neo\Exceptions\ConfigurationException
-     * @throws \DynEd\Neo\Exceptions\ValidationException
+     * @throws \Neo\Exceptions\ConfigurationException
+     * @throws \Neo\Exceptions\ValidationException
      */
     public function summary($username, array $period)
     {
