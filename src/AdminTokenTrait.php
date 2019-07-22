@@ -65,6 +65,7 @@ trait AdminTokenTrait
         if( ! $this->isAdminTokenSet()) {
             throw new ConfigurationException("missing admin token");
         }
+      
         return $this;
     }
 }
