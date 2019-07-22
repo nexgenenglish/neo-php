@@ -2,8 +2,8 @@
 
 namespace DynEd\Neo\Etest;
 
-use DynEd\Neo\AbstractApi;
-use DynEd\Neo\AdminTokenTrait;
+use Neo\AbstractApi;
+use Neo\AdminTokenTrait;
 use Tightenco\Collect\Support\Collection;
 
 class Bank extends AbstractApi
@@ -28,7 +28,7 @@ class Bank extends AbstractApi
      * Retrieve questions
      *
      * @return Collection|null
-     * @throws \DynEd\Neo\Exceptions\ConfigurationException
+     * @throws \Neo\Exceptions\ConfigurationException
      */
     public function questions()
     {
