@@ -3,7 +3,7 @@
 use Neo\Auth\Auth;
 use Neo\HttpClients\GuzzleHttpClient;
 use PHPUnit\Framework\TestCase;
-use DynEd\Neo\Etest\Bank;
+use Neo\Etest\Bank;
 use Tightenco\Collect\Support\Collection;
 
 class EtestBankTest extends TestCase
