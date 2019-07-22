@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use DynEd\Neo\Auth\Token;
+use Neo\Auth\Token;
 
 class AuthTokenTest extends TestCase
 {
