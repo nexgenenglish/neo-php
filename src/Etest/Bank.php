@@ -20,21 +20,23 @@ class Bank extends AbstractApi
         parent::configure();
 
         $this->endpoints = [
-            'questions' => '/banks/question'
+            'questions' => '/banks/question?pages=%s'
         ];
     }
 
     /**
      * Retrieve questions
      *
+     * @param $page
      * @return Collection|null
      * @throws \Neo\Exceptions\ConfigurationException
      */
-    public function questions()
+    public function questions($page = 1)
     {
         $this->httpClientSetOrFail()->adminTokenSetOrFail();
 
-        $response = $this->httpClient->get($this->getEndpoints('questions'),
+        $response = $this->httpClient->get(
+            sprintf($this->getEndpoints('questions'), $page),
             [
                 'headers' => [
                     'Content-Type' => 'application/json',

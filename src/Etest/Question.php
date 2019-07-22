@@ -1,6 +1,6 @@
 <?php
 
-namespace DynEd\Neo\Etest;
+namespace Neo\Etest;
 
 class Question
 {
