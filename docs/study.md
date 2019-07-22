@@ -10,9 +10,9 @@ Use this method to retrieve students of organisation from NSA. This method accep
 ```php
 <?php
 
-use DynEd\Neo\Auth\Token;
-use DynEd\Neo\Study\Student;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
+use Neo\Auth\Token;
+use Neo\Study\Student;
+use Neo\HttpClients\GuzzleHttpClient;
 
 // Setup HTTP client
 $httpClient = new GuzzleHttpClient([
@@ -31,7 +31,13 @@ $adminToken = $auth->token([
     'password' => 'admin'
 ]);
 
-$students= $nsa->useAdminToken($adminToken)->organisation('001', $page);
+$students = $nsa->useAdminToken($adminToken)->organisation('001', $page);
+
+// Or instead of using admin token, you can using admin credential
+$students = $nsa->useAdminCredential([
+    'username' => 'admin',
+    'password' => 'admin'
+])->organisation('001', $page);
 ```
 
 ##### Student Study Summary
@@ -40,9 +46,9 @@ Use this method to retrieve student's summary of study. This method accept stude
 ```php
 <?php
 
-use DynEd\Neo\Auth\Token;
-use DynEd\Neo\Study\Student;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
+use Neo\Auth\Token;
+use Neo\Study\Student;
+use Neo\HttpClients\GuzzleHttpClient;
 
 // Setup HTTP client
 $httpClient = new GuzzleHttpClient([
@@ -57,6 +63,12 @@ $period = ['start' => '2018-01-01', 'end' => '2020-01-01'];
 $adminToken = new Token('xxx'); // You may retrieve this from Auth
 
 $sr = $nsa->useAdminToken($adminToken)->summary($student, $period);
+
+// Or instead of using admin token, you can using admin credential
+$sr = $nsa->useAdminToken([
+    'username' => 'admin',
+    'password' => 'admin'
+])->summary($student, $period);
 ```
 
 ### Notes

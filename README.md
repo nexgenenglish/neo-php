@@ -1,5 +1,5 @@
 # PHP Library for Neo API Ecosystem 
-[![Build Status](https://travis-ci.org/jsilalahi/neo-php.svg?branch=master)](https://travis-ci.org/jsilalahi/neo-php)
+[![Build Status](https://travis-ci.org/nexgenenglish/neo-php.svg?branch=master)](https://travis-ci.org/nexgenenglish/neo-php)
 
 NOTE: neo-php still on heavy development. Do not use on production yet.
 
@@ -8,13 +8,13 @@ NOTE: neo-php still on heavy development. Do not use on production yet.
 The easiest way to install neo-php library is using composer
 
 ```
-composer require dyned/neo-php
+composer require nexgenenglish/neo-php
 ```
 
 That's it!
 
 #### Documentations
-Please refer to `docs` folder.
+Please refer to [documentations](docs) folder.
 
 
 #### Test

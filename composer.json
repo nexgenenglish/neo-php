@@ -1,5 +1,5 @@
 {
-    "name": "dyned/neo-php",
+    "name": "nexgenenglish/neo-php",
     "description": "Official Neo PHP SDK",
     "type": "library",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "DynEd\\Neo\\": "src/"
+            "Neo\\": "src/"
         },
         "files": [
             "src/Helpers/string.php"

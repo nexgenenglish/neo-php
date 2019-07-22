@@ -1,10 +1,10 @@
 <?php
 
-namespace DynEd\Neo;
+namespace Neo;
 
-use DynEd\Neo\Auth\Auth;
-use DynEd\Neo\Auth\Token;
-use DynEd\Neo\Exceptions\ConfigurationException;
+use Neo\Auth\Auth;
+use Neo\Auth\Token;
+use Neo\Exceptions\ConfigurationException;
 
 trait AdminTokenTrait
 {
@@ -65,7 +65,7 @@ trait AdminTokenTrait
         if( ! $this->isAdminTokenSet()) {
             throw new ConfigurationException("missing admin token");
         }
-
+      
         return $this;
     }
 }

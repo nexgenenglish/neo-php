@@ -1,9 +1,9 @@
 <?php
 
-namespace DynEd\Neo;
+namespace Neo;
 
-use DynEd\Neo\Exceptions\ConfigurationException;
-use DynEd\Neo\HttpClients\HttpClientInterface;
+use Neo\Exceptions\ConfigurationException;
+use Neo\HttpClients\HttpClientInterface;
 
 abstract class AbstractApi
 {
