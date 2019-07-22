@@ -1,7 +1,7 @@
 <?php
 
-use DynEd\Neo\Auth\Auth;
-use DynEd\Neo\HttpClients\GuzzleHttpClient;
+use Neo\Auth\Auth;
+use Neo\HttpClients\GuzzleHttpClient;
 use PHPUnit\Framework\TestCase;
 use DynEd\Neo\Etest\Bank;
 use Tightenco\Collect\Support\Collection;
