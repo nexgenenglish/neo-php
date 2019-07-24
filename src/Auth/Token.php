@@ -2,7 +2,8 @@
 
 namespace Neo\Auth;
 
-class Token{
+class Token
+{
     /**
      * Token.
      *
@@ -11,7 +12,7 @@ class Token{
     private $token;
 
     /**
-     * Token constructor
+     * Token constructor.
      *
      * @param $token
      */
@@ -21,7 +22,7 @@ class Token{
     }
 
     /**
-     * Get token in string
+     * Get token in string.
      *
      * @return mixed
      */
@@ -31,7 +32,7 @@ class Token{
     }
 
     /**
-     * Parse return decoded token, which is JWT, into human readable
+     * Parse return decoded token, which is JWT, into human readable.
      *
      * @return \Tightenco\Collect\Support\Collection
      */
@@ -47,7 +48,7 @@ class Token{
     }
 
     /**
-     * Token to string
+     * Token to string.
      *
      * @return mixed
      */
