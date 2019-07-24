@@ -12,7 +12,7 @@ class Token
     private $token;
 
     /**
-     * Token constructor
+     * Token constructor.
      *
      * @param $token
      */
@@ -22,7 +22,7 @@ class Token
     }
 
     /**
-     * Get token in string
+     * Get token in string.
      *
      * @return mixed
      */
@@ -48,7 +48,7 @@ class Token
     }
 
     /**
-     * Token to string
+     * Token to string.
      *
      * @return mixed
      */
