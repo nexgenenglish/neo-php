@@ -2,8 +2,7 @@
 
 namespace Neo\Auth;
 
-class Token
-{
+class Token{
     /**
      * Token.
      *
@@ -32,7 +31,7 @@ class Token
     }
 
     /**
-     * Parse return decoded token, which is JWT, into human readable.
+     * Parse return decoded token, which is JWT, into human readable
      *
      * @return \Tightenco\Collect\Support\Collection
      */
