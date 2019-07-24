@@ -4,17 +4,17 @@ namespace Neo\Interim;
 
 use Neo\HttpClients\HttpClientInterface;
 
-class Applicant {
-
+class Applicant
+{
     /**
-     * HTTP client
+     * HTTP client.
      *
      * @var HttpClientInterface
      */
     private static $httpClient;
 
     /**
-     * Setup
+     * Setup.
      *
      * @param HttpClientInterface $httpClient
      */
@@ -25,6 +25,5 @@ class Applicant {
 
     public static function register($email, array $payload)
     {
-
     }
 }

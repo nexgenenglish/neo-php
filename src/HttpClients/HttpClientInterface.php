@@ -5,45 +5,50 @@ namespace Neo\HttpClients;
 interface HttpClientInterface
 {
     /**
-     * Get
+     * Get.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed
      */
     public function get($uri, array $options = []);
 
     /**
-     * Post
+     * Post.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed
      */
     public function post($uri, array $options = []);
 
     /**
-     * Put
+     * Put.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed
      */
     public function put($uri, array $options = []);
 
     /**
-     * Patch
+     * Patch.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed
      */
     public function patch($uri, array $options = []);
 
     /**
-     * Delete
+     * Delete.
      *
      * @param $uri
+     *
      * @return mixed
      */
     public function delete($uri);

@@ -1,19 +1,20 @@
 <?php
 
-if (! function_exists('camelize')) {
+if (!function_exists('camelize')) {
     /**
-     * Convert snake case into camel case
+     * Convert snake case into camel case.
      *
-     * @param mixed $value
+     * @param mixed  $value
      * @param string $delimeter
-     * @param bool $capitalizeFirstLetter
+     * @param bool   $capitalizeFirstLetter
+     *
      * @return string
      */
-    function camelize($value = null, $delimeter = "_", $capitalizeFirstLetter = false)
+    function camelize($value = null, $delimeter = '_', $capitalizeFirstLetter = false)
     {
         $str = str_replace($delimeter, '', ucwords($value, $delimeter));
 
-        if ( ! $capitalizeFirstLetter) {
+        if (!$capitalizeFirstLetter) {
             $str = lcfirst($str);
         }
 

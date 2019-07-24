@@ -8,28 +8,28 @@ use Neo\HttpClients\HttpClientInterface;
 abstract class AbstractApi
 {
     /**
-     * HTTP client
+     * HTTP client.
      *
      * @var HttpClientInterface
      */
     protected $httpClient = null;
 
     /**
-     * API endpoints
+     * API endpoints.
      *
      * @var array
      */
     protected $endpoints = [];
 
     /**
-     * API configuration
+     * API configuration.
      *
      * @var array
      */
     protected $config = [];
 
     /**
-     * AbstractApi constructor
+     * AbstractApi constructor.
      *
      * @param HttpClientInterface $httpClient
      * @param $endpoints
@@ -45,7 +45,7 @@ abstract class AbstractApi
     }
 
     /**
-     * Setup HTTP client
+     * Setup HTTP client.
      *
      * @param HttpClientInterface $httpClient
      */
@@ -55,7 +55,7 @@ abstract class AbstractApi
     }
 
     /**
-     * Check whether HTTP client set
+     * Check whether HTTP client set.
      *
      * @return bool
      */
@@ -65,23 +65,24 @@ abstract class AbstractApi
     }
 
     /**
-     * Check whether HTTP client set or throw an exception
+     * Check whether HTTP client set or throw an exception.
      *
      * @throws ConfigurationException
      */
     protected function httpClientSetOrFail()
     {
-        if( ! $this->isHttpClientSet()) {
-            throw new ConfigurationException("missing http client");
+        if (!$this->isHttpClientSet()) {
+            throw new ConfigurationException('missing http client');
         }
 
         return $this;
     }
 
     /**
-     * Get endpoints
+     * Get endpoints.
      *
      * @param null $key
+     *
      * @return array|mixed|null
      */
     public function getEndpoints($key = null)
@@ -92,14 +93,14 @@ abstract class AbstractApi
     }
 
     /**
-     * Set config
+     * Set config.
      *
      * @param $key
      * @param null $value
      */
     public function setEndpoints($key, $value = null)
     {
-        if(is_array($key)) {
+        if (is_array($key)) {
             foreach ($key as $k => $v) {
                 $this->setEndpoints($k, $v);
             }
@@ -111,9 +112,10 @@ abstract class AbstractApi
     }
 
     /**
-     * Get config
+     * Get config.
      *
      * @param null $key
+     *
      * @return array|mixed|null
      */
     public function getConfig($key = null)
@@ -124,14 +126,14 @@ abstract class AbstractApi
     }
 
     /**
-     * Set config
+     * Set config.
      *
      * @param $key
      * @param null $value
      */
     public function setConfig($key, $value = null)
     {
-        if(is_array($key)) {
+        if (is_array($key)) {
             foreach ($key as $k => $v) {
                 $this->setConfig($k, $v);
             }
@@ -143,19 +145,19 @@ abstract class AbstractApi
     }
 
     /**
-     * Configure default value
+     * Configure default value.
      *
      * @return void
      */
     protected function configure()
     {
-        if( ! $this->endpoints) {
+        if (!$this->endpoints) {
             $this->endpoints = [];
         }
 
-        if( ! $this->endpoints) {
+        if (!$this->endpoints) {
             $this->config = [
-                'raw_response' => false // By default, API return an object / encoded
+                'raw_response' => false, // By default, API return an object / encoded
             ];
         }
     }

@@ -5,14 +5,14 @@ namespace Neo\Auth;
 class Token
 {
     /**
-     * Token
+     * Token.
      *
      * @var string
      */
     private $token;
 
     /**
-     * Token constructor
+     * Token constructor.
      *
      * @param $token
      */
@@ -22,7 +22,7 @@ class Token
     }
 
     /**
-     * Get token in string
+     * Get token in string.
      *
      * @return mixed
      */
@@ -32,7 +32,7 @@ class Token
     }
 
     /**
-     * Parse return decoded token, which is JWT, into human readable
+     * Parse return decoded token, which is JWT, into human readable.
      *
      * @return \Tightenco\Collect\Support\Collection
      */
@@ -41,14 +41,14 @@ class Token
         list($header, $payload, $signature) = explode('.', $this->token);
 
         return collect([
-            'header' => json_decode(base64_decode($header)),
-            'payload' => json_decode(base64_decode($payload)),
-            'signature' => $signature
+            'header'    => json_decode(base64_decode($header)),
+            'payload'   => json_decode(base64_decode($payload)),
+            'signature' => $signature,
         ]);
     }
 
     /**
-     * Token to string
+     * Token to string.
      *
      * @return mixed
      */

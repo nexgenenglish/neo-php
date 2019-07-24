@@ -1,10 +1,10 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use Neo\Auth\Auth;
-use Neo\HttpClients\GuzzleHttpClient;
-use Neo\Exceptions\ValidationException;
 use Neo\Auth\Token;
+use Neo\Exceptions\ValidationException;
+use Neo\HttpClients\GuzzleHttpClient;
+use PHPUnit\Framework\TestCase;
 use Tightenco\Collect\Support\Collection;
 
 class AuthTest extends TestCase
@@ -18,12 +18,12 @@ class AuthTest extends TestCase
     {
         parent::setUp();
 
-        $this->baseUri = getenv("NEO_SSO_BASE_URI");
-        $this->username = getenv("NEO_SSO_USERNAME");
-        $this->password = getenv("NEO_SSO_PASSWORD");
+        $this->baseUri = getenv('NEO_SSO_BASE_URI');
+        $this->username = getenv('NEO_SSO_USERNAME');
+        $this->password = getenv('NEO_SSO_PASSWORD');
 
         $httpClient = new GuzzleHttpClient([
-            'base_uri' => getenv("NEO_SSO_BASE_URI")
+            'base_uri' => getenv('NEO_SSO_BASE_URI'),
         ]);
 
         $this->auth = new Auth($httpClient);
@@ -42,7 +42,7 @@ class AuthTest extends TestCase
     {
         $token = $this->auth->token([
             'username' => 'invalid',
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $this->assertNull($token);
@@ -52,7 +52,7 @@ class AuthTest extends TestCase
     {
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => 'invalid'
+            'password' => 'invalid',
         ]);
 
         $this->assertNull($token);
@@ -62,7 +62,7 @@ class AuthTest extends TestCase
     {
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $this->assertInstanceOf(Token::class, $token);
@@ -77,7 +77,7 @@ class AuthTest extends TestCase
 
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $this->assertInstanceOf(Token::class, $token);
@@ -89,7 +89,7 @@ class AuthTest extends TestCase
 
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $this->assertIsString($token);
@@ -98,8 +98,6 @@ class AuthTest extends TestCase
 
         $this->assertEquals(false, $this->auth->getConfig('raw_response'));
     }
-
-
 
     public function testAuthTokenVerify_Invalid()
     {
@@ -114,7 +112,7 @@ class AuthTest extends TestCase
     {
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $valid = $this->auth->verify($token);
@@ -126,20 +124,20 @@ class AuthTest extends TestCase
     {
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $user = $this->auth->user($token);
 
-        $this->assertObjectHasAttribute("acl", $user);
-        $this->assertObjectHasAttribute("profile", $user);
+        $this->assertObjectHasAttribute('acl', $user);
+        $this->assertObjectHasAttribute('profile', $user);
     }
 
     public function testAuthLogin()
     {
         $user = $this->auth->login([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $this->assertTrue($this->auth->verify($user->token()));
@@ -147,8 +145,6 @@ class AuthTest extends TestCase
         $this->assertInstanceOf(Collection::class, $user->acl());
         $this->assertInstanceOf(Collection::class, $user->profile());
         $this->assertEquals('super_admin', $user->profile()->get('roles')[0]);
-        $this->assertEquals('super_admin', $user->profile("roles")[0]);
+        $this->assertEquals('super_admin', $user->profile('roles')[0]);
     }
 }
-
-
