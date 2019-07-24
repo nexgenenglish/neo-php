@@ -11,7 +11,7 @@ class Bank extends AbstractApi
     use AdminTokenTrait;
 
     /**
-     * Configure default value
+     * Configure default value.
      *
      * @return void
      */
@@ -20,16 +20,18 @@ class Bank extends AbstractApi
         parent::configure();
 
         $this->endpoints = [
-            'questions' => '/banks/question?pages=%s'
+            'questions' => '/banks/question?pages=%s',
         ];
     }
 
     /**
-     * Retrieve questions
+     * Retrieve questions.
      *
      * @param $page
-     * @return Collection|null
+     *
      * @throws \Neo\Exceptions\ConfigurationException
+     *
+     * @return Collection|null
      */
     public function questions($page = 1)
     {
@@ -40,18 +42,18 @@ class Bank extends AbstractApi
             [
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'X-DynEd-Tkn' => $this->adminToken->string()
-                ]
+                    'X-DynEd-Tkn'  => $this->adminToken->string(),
+                ],
             ]
         );
 
         if ($response->getStatusCode() != '200') {
-            return null;
+            return;
         }
 
         $raw = $response->getBody()->getContents();
 
-        if($this->getConfig('raw_response')) {
+        if ($this->getConfig('raw_response')) {
             return $raw;
         }
 

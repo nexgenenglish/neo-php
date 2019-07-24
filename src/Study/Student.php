@@ -12,7 +12,7 @@ class Student extends AbstractApi
     use AdminTokenTrait;
 
     /**
-     * Configure default value
+     * Configure default value.
      *
      * @return void
      */
@@ -22,17 +22,19 @@ class Student extends AbstractApi
 
         $this->endpoints = [
             'organisation' => '/api/v1/dsa/report/student?org_code=%s&page=%s',
-            'summary' => '/api/v1/dsa/report/student/%s?starttime=%s&endtime=%s'
+            'summary'      => '/api/v1/dsa/report/student/%s?starttime=%s&endtime=%s',
         ];
     }
 
     /**
-     * Retrieve students from organisation
+     * Retrieve students from organisation.
      *
      * @param $uic
      * @param $page
-     * @return mixed|null
+     *
      * @throws \Neo\Exceptions\ConfigurationException
+     *
+     * @return mixed|null
      */
     public function organisation($uic, $page = 1)
     {
@@ -42,18 +44,18 @@ class Student extends AbstractApi
             sprintf($this->getEndpoints('organisation'), $uic, $page),
             [
                 'headers' => [
-                    'X-DynEd-Tkn' => $this->adminToken->string()
-                ]
+                    'X-DynEd-Tkn' => $this->adminToken->string(),
+                ],
             ]
         );
 
         if ($response->getStatusCode() != '200') {
-            return null;
+            return;
         }
 
         $raw = $response->getBody()->getContents();
 
-        if($this->getConfig('raw_response')) {
+        if ($this->getConfig('raw_response')) {
             return $raw;
         }
 
@@ -61,43 +63,45 @@ class Student extends AbstractApi
     }
 
     /**
-     * Study summary of given student in range of period
+     * Study summary of given student in range of period.
      *
      * @param $username
      * @param array $period
-     * @return mixed|null
+     *
      * @throws \Neo\Exceptions\ConfigurationException
      * @throws \Neo\Exceptions\ValidationException
+     *
+     * @return mixed|null
      */
     public function summary($username, array $period)
     {
         $this->httpClientSetOrFail()->adminTokenSetOrFail();
 
-        $validation = (new Validator)->validate($period, [
+        $validation = (new Validator())->validate($period, [
             'start' => 'required|date',
-            'end' => 'required|date',
+            'end'   => 'required|date',
         ]);
 
         if ($validation->fails()) {
-            throw new ValidationException("missing or invalid period start or end");
+            throw new ValidationException('missing or invalid period start or end');
         }
 
         $response = $this->httpClient->get(
             sprintf($this->getEndpoints('summary'), $username, $period['start'], $period['end']),
             [
                 'headers' => [
-                    'X-DynEd-Tkn' => $this->adminToken->string()
-                ]
+                    'X-DynEd-Tkn' => $this->adminToken->string(),
+                ],
             ]
         );
 
         if ($response->getStatusCode() != '200') {
-            return null;
+            return;
         }
 
         $raw = $response->getBody()->getContents();
 
-        if($this->getConfig('raw_response')) {
+        if ($this->getConfig('raw_response')) {
             return $raw;
         }
 

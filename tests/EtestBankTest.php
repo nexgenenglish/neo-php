@@ -1,9 +1,9 @@
 <?php
 
 use Neo\Auth\Auth;
+use Neo\Etest\Bank;
 use Neo\HttpClients\GuzzleHttpClient;
 use PHPUnit\Framework\TestCase;
-use Neo\Etest\Bank;
 use Tightenco\Collect\Support\Collection;
 
 class EtestBankTest extends TestCase
@@ -17,20 +17,20 @@ class EtestBankTest extends TestCase
     {
         parent::setUp();
 
-        $this->username = getenv("NEO_SSO_USERNAME");
-        $this->password = getenv("NEO_SSO_PASSWORD");
+        $this->username = getenv('NEO_SSO_USERNAME');
+        $this->password = getenv('NEO_SSO_PASSWORD');
 
         $this->bank = new Bank(new GuzzleHttpClient([
-            'base_uri' => getenv("NEO_ETEST_BASE_URI"),
-            'timeout' => 120
+            'base_uri' => getenv('NEO_ETEST_BASE_URI'),
+            'timeout'  => 120,
         ]));
         $this->auth = new Auth(new GuzzleHttpClient([
-            'base_uri' => getenv("NEO_SSO_BASE_URI")
+            'base_uri' => getenv('NEO_SSO_BASE_URI'),
         ]));
 
         $token = $this->auth->token([
             'username' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
         ]);
 
         $this->bank->useAdminToken($token);
@@ -44,5 +44,3 @@ class EtestBankTest extends TestCase
         $this->assertInstanceOf(Collection::class, $questions);
     }
 }
-
-

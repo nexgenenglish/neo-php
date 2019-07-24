@@ -9,16 +9,17 @@ use Neo\Exceptions\ConfigurationException;
 trait AdminTokenTrait
 {
     /**
-     * Admin token
+     * Admin token.
      *
      * @var Token
      */
     public $adminToken;
 
     /**
-     * Set admin token
+     * Set admin token.
      *
      * @param Token $token
+     *
      * @return $this
      */
     public function useAdminToken(Token $token)
@@ -29,12 +30,14 @@ trait AdminTokenTrait
     }
 
     /**
-     * Set admin credential
+     * Set admin credential.
      *
      * @param array $credential
-     * @return $this
+     *
      * @throws Exceptions\ConfigurationException
      * @throws Exceptions\ValidationException
+     *
+     * @return $this
      */
     public function useAdminCredential(array $credential)
     {
@@ -46,7 +49,7 @@ trait AdminTokenTrait
     }
 
     /**
-     * Check whether admin token set
+     * Check whether admin token set.
      *
      * @return bool
      */
@@ -56,16 +59,16 @@ trait AdminTokenTrait
     }
 
     /**
-     * Check whether admin token set or throw an exception
+     * Check whether admin token set or throw an exception.
      *
      * @throws ConfigurationException
      */
     public function adminTokenSetOrFail()
     {
-        if( ! $this->isAdminTokenSet()) {
-            throw new ConfigurationException("missing admin token");
+        if (!$this->isAdminTokenSet()) {
+            throw new ConfigurationException('missing admin token');
         }
-      
+
         return $this;
     }
 }

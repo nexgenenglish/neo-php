@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use Neo\Auth\Token;
+use PHPUnit\Framework\TestCase;
 
 class AuthTokenTest extends TestCase
 {
@@ -11,7 +11,7 @@ class AuthTokenTest extends TestCase
     {
         parent::setUp();
 
-        $this->username = getenv("NEO_SSO_USERNAME");
+        $this->username = getenv('NEO_SSO_USERNAME');
     }
 
     public function testToken()
@@ -25,5 +25,3 @@ class AuthTokenTest extends TestCase
         $this->assertEquals($this->username, $token->parse()->get('payload')->username);
     }
 }
-
-

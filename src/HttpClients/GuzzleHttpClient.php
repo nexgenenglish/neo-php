@@ -7,25 +7,25 @@ use GuzzleHttp\Client;
 class GuzzleHttpClient implements HttpClientInterface
 {
     /**
-     * HTTP client
+     * HTTP client.
      *
      * @var Client
      */
     private $client;
 
     /**
-     * HTTP client config
+     * HTTP client config.
      *
      * @var array
      */
     private $config = [
-        'timeout'  => 5,
+        'timeout'     => 5,
         'http_errors' => false,
-        'verify' => false
+        'verify'      => false,
     ];
 
     /**
-     * GuzzleHttpClient constructor
+     * GuzzleHttpClient constructor.
      *
      * @param array $config
      */
@@ -37,10 +37,11 @@ class GuzzleHttpClient implements HttpClientInterface
     }
 
     /**
-     * Get
+     * Get.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function get($uri, array $options = [])
@@ -49,10 +50,11 @@ class GuzzleHttpClient implements HttpClientInterface
     }
 
     /**
-     * Post
+     * Post.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function post($uri, array $options = [])
@@ -61,10 +63,11 @@ class GuzzleHttpClient implements HttpClientInterface
     }
 
     /**
-     * Put
+     * Put.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function put($uri, array $options = [])
@@ -73,10 +76,11 @@ class GuzzleHttpClient implements HttpClientInterface
     }
 
     /**
-     * Patch
+     * Patch.
      *
      * @param $uri
      * @param array $options
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function patch($uri, array $options = [])
@@ -85,9 +89,10 @@ class GuzzleHttpClient implements HttpClientInterface
     }
 
     /**
-     * Delete
+     * Delete.
      *
      * @param $uri
+     *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
     public function delete($uri)

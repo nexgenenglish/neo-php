@@ -7,28 +7,28 @@ use Tightenco\Collect\Support\Collection;
 class User
 {
     /**
-     * User token
+     * User token.
      *
      * @var Token
      */
     protected $token;
 
     /**
-     * User ACL
+     * User ACL.
      *
      * @var Collection
      */
     protected $acl;
 
     /**
-     * User profile
+     * User profile.
      *
      * @var Collection
      */
     protected $profile;
 
     /**
-     * User constructor
+     * User constructor.
      *
      * @param Token $token
      * @param $acl
@@ -44,9 +44,10 @@ class User
     }
 
     /**
-     * Create is static method to help creating user
+     * Create is static method to help creating user.
      *
      * @param array $data
+     *
      * @return User
      */
     public static function create(array $data)
@@ -69,11 +70,11 @@ class User
             )
         );
 
-        return new User($token, $acl, $profile);
+        return new self($token, $acl, $profile);
     }
 
     /**
-     * Retrieve user's token
+     * Retrieve user's token.
      *
      * @return Token
      */
@@ -83,30 +84,34 @@ class User
     }
 
     /**
-     * Retrieve user's profile
+     * Retrieve user's profile.
      *
      * @param $key
+     *
      * @return Collection
      */
     public function profile($key = null)
     {
-        if($key) {
+        if ($key) {
             return $this->profile->get($key);
         }
+
         return $this->profile;
     }
 
     /**
-     * Retrieve user's ACL
+     * Retrieve user's ACL.
      *
      * @param $key
+     *
      * @return Collection
      */
     public function acl($key = null)
     {
-        if($key) {
+        if ($key) {
             return $this->acl->get($key);
         }
+
         return $this->acl;
     }
 }

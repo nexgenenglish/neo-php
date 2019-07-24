@@ -1,9 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use Neo\Auth\Auth;
 use Neo\HttpClients\GuzzleHttpClient;
 use Neo\Study\Student;
+use PHPUnit\Framework\TestCase;
 
 class StudyStudentTest extends TestCase
 {
@@ -18,12 +18,12 @@ class StudyStudentTest extends TestCase
     {
         parent::setUp();
 
-        $this->ssoBaseUri = getenv("NEO_SSO_BASE_URI");
-        $this->ssoUsername = getenv("NEO_SSO_USERNAME");
-        $this->ssoPassword = getenv("NEO_SSO_PASSWORD");
+        $this->ssoBaseUri = getenv('NEO_SSO_BASE_URI');
+        $this->ssoUsername = getenv('NEO_SSO_USERNAME');
+        $this->ssoPassword = getenv('NEO_SSO_PASSWORD');
 
         $httpClient = new GuzzleHttpClient([
-            'base_uri' => getenv("NEO_SSO_BASE_URI")
+            'base_uri' => getenv('NEO_SSO_BASE_URI'),
         ]);
 
         $this->auth = new Auth($httpClient);
@@ -34,7 +34,7 @@ class StudyStudentTest extends TestCase
     {
         $adminToken = $this->auth->token([
             'username' => $this->ssoUsername,
-            'password' => $this->ssoPassword
+            'password' => $this->ssoPassword,
         ]);
 
         $students = $this->student->useAdminToken($adminToken)->organisation('001');
@@ -46,7 +46,7 @@ class StudyStudentTest extends TestCase
     {
         $adminToken = $this->auth->token([
             'username' => $this->ssoUsername,
-            'password' => $this->ssoPassword
+            'password' => $this->ssoPassword,
         ]);
 
         $students = $this->student->useAdminToken($adminToken)->organisation('001');
@@ -62,7 +62,7 @@ class StudyStudentTest extends TestCase
     {
         $students = $this->student->useAdminCredential([
             'username' => $this->ssoUsername,
-            'password' => $this->ssoPassword
+            'password' => $this->ssoPassword,
         ])->organisation('001');
 
         $this->assertNotNull($students);
@@ -72,5 +72,3 @@ class StudyStudentTest extends TestCase
         $this->assertNotNull($summary);
     }
 }
-
-

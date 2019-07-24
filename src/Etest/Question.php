@@ -5,70 +5,70 @@ namespace Neo\Etest;
 class Question
 {
     /**
-     * Question ID
+     * Question ID.
      *
      * @var int
      */
     public $id;
 
     /**
-     * Answer mode ID
+     * Answer mode ID.
      *
      * @var int
      */
     public $answerModeId;
 
     /**
-     * Answer mode
+     * Answer mode.
      *
      * @var string
      */
     public $answerMode;
 
     /**
-     * Instructions
+     * Instructions.
      *
      * @var string
      */
     public $instructions;
 
     /**
-     * Comments
+     * Comments.
      *
      * @var string
      */
     public $comments;
 
     /**
-     * Modified by
+     * Modified by.
      *
      * @var string
      */
     public $modifiedBy;
 
     /**
-     * Question type ID
+     * Question type ID.
      *
      * @var int
      */
     public $typeId;
 
     /**
-     * Created at
+     * Created at.
      *
      * @var string
      */
     public $createdAt;
 
     /**
-     * Updated at
+     * Updated at.
      *
      * @var string
      */
     public $updatedAt;
 
     /**
-     * Question constructor
+     * Question constructor.
      *
      * @param array $data
      */
