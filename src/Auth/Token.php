@@ -12,7 +12,7 @@ class Token
     private $token;
 
     /**
-     * Token constructor.
+     * Token constructor
      *
      * @param $token
      */
