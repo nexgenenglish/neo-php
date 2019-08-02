@@ -26,12 +26,14 @@ class Applicant extends AbstractApi
     }
 
     /**
-     * Register an applicant
+     * Register an applicant.
      *
      * @param $email
      * @param array $payload
-     * @return mixed|void
+     *
      * @throws \Neo\Exceptions\ConfigurationException
+     *
+     * @return mixed|void
      */
     public function register($email, array $payload)
     {
@@ -51,12 +53,12 @@ class Applicant extends AbstractApi
         $response = $this->httpClient->post($this->getEndpoints('register.password'),
             [
                 'form_params' => [
-                    'email' => $email,
+                    'email'   => $email,
                     'payload' => $payload,
                 ],
                 'headers' => [
-                    'Accept' => 'application/json',
-                    'Authorization' => $this->getAuthorizationToken()
+                    'Accept'        => 'application/json',
+                    'Authorization' => $this->getAuthorizationToken(),
                 ],
             ]
         );

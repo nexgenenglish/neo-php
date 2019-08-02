@@ -22,9 +22,9 @@ trait AuthorizationTrait
      *
      * @return $this
      */
-    public function useAuthorizationToken($token, $prefix = "Bearer ")
+    public function useAuthorizationToken($token, $prefix = 'Bearer ')
     {
-        $this->authorizationToken = $prefix . $token;
+        $this->authorizationToken = $prefix.$token;
 
         return $this;
     }
