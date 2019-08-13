@@ -21,7 +21,7 @@ class Content extends AbstractApi
     }
 
     /**
-     * Get certification plans
+     * Get certification plans.
      *
      * @throws \Neo\Exceptions\ConfigurationException
      */
@@ -46,10 +46,10 @@ class Content extends AbstractApi
 
         foreach ($cp as $item) {
             $result[] = CertificationPlan::create([
-                'name' => $item->cert_plan,
-                'checksum' => $item->sha1,
+                'name'        => $item->cert_plan,
+                'checksum'    => $item->sha1,
                 'downloadUrl' => $item->download_url,
-                'updatedAt' => $item->last_update
+                'updatedAt'   => $item->last_update,
             ]);
         }
 

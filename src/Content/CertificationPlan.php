@@ -5,37 +5,38 @@ namespace Neo\Content;
 class CertificationPlan
 {
     /**
-     * Name
+     * Name.
      *
      * @var string
      */
     public $name;
 
     /**
-     * Checksum
+     * Checksum.
      *
      * @var string
      */
     public $checksum;
 
     /**
-     * Download URL
+     * Download URL.
      *
      * @var string
      */
     public $downloadUrl;
 
     /**
-     * Updated At
+     * Updated At.
      *
      * @var string
      */
     public $updatedAt;
 
     /**
-     * Create
+     * Create.
      *
      * @param array $data
+     *
      * @return CertificationPlan
      */
     public static function create(array $data)
@@ -50,7 +51,7 @@ class CertificationPlan
     }
 
     /**
-     * Get Name
+     * Get Name.
      *
      * @return string
      */
@@ -60,7 +61,7 @@ class CertificationPlan
     }
 
     /**
-     * Get Checksum
+     * Get Checksum.
      *
      * @return string
      */
@@ -70,7 +71,7 @@ class CertificationPlan
     }
 
     /**
-     * Get Download URL
+     * Get Download URL.
      *
      * @return string
      */
@@ -80,7 +81,7 @@ class CertificationPlan
     }
 
     /**
-     * Get Updated At
+     * Get Updated At.
      *
      * @return string
      */
