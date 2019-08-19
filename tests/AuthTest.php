@@ -24,6 +24,7 @@ class AuthTest extends TestCase
 
         $httpClient = new GuzzleHttpClient([
             'base_uri' => getenv('NEO_SSO_BASE_URI'),
+            'timeout' => 10
         ]);
 
         $this->auth = new Auth($httpClient);
