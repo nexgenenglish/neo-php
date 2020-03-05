@@ -52,6 +52,7 @@ class AuthProxy
             }
         }
 
+        $this->resetLastServerFound();
         return null;
     }
 
@@ -71,6 +72,7 @@ class AuthProxy
             }
         }
 
+        $this->resetLastServerFound();
         return false;
     }
 
@@ -90,6 +92,7 @@ class AuthProxy
             }
         }
 
+        $this->resetLastServerFound();
         return false;
     }
 
@@ -109,6 +112,7 @@ class AuthProxy
             }
         }
 
+        $this->resetLastServerFound();
         return false;
     }
 
@@ -120,5 +124,15 @@ class AuthProxy
     public function getLastServerFound()
     {
         return $this->lastServerFound;
+    }
+
+    /**
+     * Resetting last server found
+     *
+     * @return void
+     */
+    private function resetLastServerFound()
+    {
+        $this->lastServerFound = "";
     }
 }
