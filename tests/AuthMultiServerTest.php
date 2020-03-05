@@ -40,6 +40,7 @@ class AuthMultiServerTest extends TestCase
 
         $this->auth->token([]);
     }
+
 //
 //    public function testAuthTokenValidation_InvalidUsername()
 //    {
