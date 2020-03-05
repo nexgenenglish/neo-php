@@ -25,13 +25,13 @@ class AuthProxy
      * @param array $endpoints
      * @param array $configs
      */
-    public function __construct(array $httpClients, array $endpoints, array $configs)
+    public function __construct(array $httpClients, array $endpoints = [], array $configs = [])
     {
         foreach ($httpClients as $key => $httpClient) {
             $this->auths[$key] = new Auth(
                 $httpClient,
-                $endpoints[$key],
-                $configs[$key]
+                (isset($endpoints[$key])) ?: [],
+                (isset($configs[$key])) ?: []
             );
         }
     }
