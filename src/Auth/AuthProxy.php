@@ -5,21 +5,21 @@ namespace Neo\Auth;
 class AuthProxy
 {
     /**
-     * Flagging to retrieve which server is found from last api call
+     * Flagging to retrieve which server is found from last api call.
      *
      * @var string
      */
-    protected $lastServerFound = "";
+    protected $lastServerFound = '';
 
     /**
-     * List of auth shadowing SSO servers
+     * List of auth shadowing SSO servers.
      *
      * @var array Auth
      */
     protected $auths = [];
 
     /**
-     * AuthMultiServer constructor
+     * AuthMultiServer constructor.
      *
      * @param array $httpClients
      * @param array $endpoints
@@ -46,8 +46,9 @@ class AuthProxy
     public function token(array $credential)
     {
         foreach ($this->auths as $server => $auth) {
-            if($result = $auth->token($credential)) {
+            if ($result = $auth->token($credential)) {
                 $this->lastServerFound = $server;
+
                 return $result;
             }
         }
@@ -66,8 +67,9 @@ class AuthProxy
     public function verify(Token $token)
     {
         foreach ($this->auths as $server => $auth) {
-            if($result = $auth->verify($token)) {
+            if ($result = $auth->verify($token)) {
                 $this->lastServerFound = $server;
+
                 return $result;
             }
         }
@@ -86,8 +88,9 @@ class AuthProxy
     public function user(Token $token)
     {
         foreach ($this->auths as $server => $auth) {
-            if($result = $auth->user($token)) {
+            if ($result = $auth->user($token)) {
                 $this->lastServerFound = $server;
+
                 return $result;
             }
         }
@@ -106,8 +109,9 @@ class AuthProxy
     public function login(array $credential)
     {
         foreach ($this->auths as $server => $auth) {
-            if($result = $auth->login($credential)) {
+            if ($result = $auth->login($credential)) {
                 $this->lastServerFound = $server;
+
                 return $result;
             }
         }
@@ -117,7 +121,7 @@ class AuthProxy
     }
 
     /**
-     * Retrieve last server found
+     * Retrieve last server found.
      *
      * @return string
      */
