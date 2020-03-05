@@ -38,6 +38,42 @@ class CustomHttpClient implements HttpClientInterface {
     public function delete($uri)  { /* Implement */ }
 }
 ```
+#### Setup - Auth Proxy (version v0.5.0+)
+There are cases in authentication when the credentials is known but nothing about the server. To solve this issue, now neo-php has AuthProxy to guess credentials for each given server.
+ 
+ ```php
+<?php 
+ 
+require "vendor/autoload.php";
+
+use Neo\Auth\AuthProxy;
+use Neo\HttpClients\GuzzleHttpClient;
+
+// Setup HTTP client for server A
+$httpClientServerA = new GuzzleHttpClient([
+ 'base_uri' => "https://a.domain.com"
+]);
+
+// Setup HTTP client for server B
+$httpClientServerB = new GuzzleHttpClient([
+    'base_uri' => "https://b.domain.com"
+]);
+ 
+// Setup Auth using GuzzleHttpClient implementation
+$auth = new AuthProxy([
+    'server_a' => $httpClientServerA,
+    'server_b' => $httpClientServerB
+]);
+ 
+// Now, you can use $auth as usual.
+
+// Retrieve which server recognized the credential
+// Should be server_a or server_b if credential recognised
+// Otherwise return "" (empty string)
+$server = $auth->getLastServerFound();  
+ ```
+
+To retrieve the server that successfully recognise credentials, you can call `$auth->getLastServerFound()` after perform AuthProxy action. An empty string returned when the
 
 #### Token
 Token retrieves JSON Web Token (JWT) from SSO service based on given credential. This method accept credential in array and consist of `username` and `password` keys. In case of credential is missing, an validation exception (`Neo\Exceptions\ValidationException`) thrown. This method return Token (`Neo\Auth\Token`) type.
