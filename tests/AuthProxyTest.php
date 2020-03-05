@@ -40,7 +40,7 @@ class AuthProxyTest extends TestCase
 
         $this->authProxy = new Auth([
             'global' => $httpClientGlobal,
-            'china' => $httpClientChina,
+            'china'  => $httpClientChina,
         ]);
     }
 
@@ -83,7 +83,7 @@ class AuthProxyTest extends TestCase
 
         $this->assertInstanceOf(Token::class, $token);
         $this->assertIsString($token->string());
-        $this->assertEquals("global", $this->authProxy->getLastServerFound());
+        $this->assertEquals('global', $this->authProxy->getLastServerFound());
 
         // China
         $token = $this->authProxy->token([
@@ -93,7 +93,7 @@ class AuthProxyTest extends TestCase
 
         $this->assertInstanceOf(Token::class, $token);
         $this->assertIsString($token->string());
-        $this->assertEquals("china", $this->authProxy->getLastServerFound());
+        $this->assertEquals('china', $this->authProxy->getLastServerFound());
     }
 
     public function testAuthTokenVerify_Invalid()
