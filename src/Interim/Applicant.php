@@ -2,28 +2,77 @@
 
 namespace Neo\Interim;
 
-use Neo\HttpClients\HttpClientInterface;
+use Neo\AbstractApi;
+use Neo\AuthorizationTrait;
+use Neo\Exceptions\ValidationException;
+use Rakit\Validation\Validator;
 
-class Applicant
+class Applicant extends AbstractApi
 {
-    /**
-     * HTTP client.
-     *
-     * @var HttpClientInterface
-     */
-    private static $httpClient;
+    use AuthorizationTrait;
 
     /**
-     * Setup.
+     * Configure default value.
      *
-     * @param HttpClientInterface $httpClient
+     * @return void
      */
-    public static function useHttpClient(HttpClientInterface $httpClient)
+    protected function configure()
     {
-        self::$httpClient = $httpClient;
+        parent::configure();
+
+        $this->endpoints = [
+            'register.password'  => 'api/neo/register/password',
+        ];
     }
 
-    public static function register($email, array $payload)
+    /**
+     * Register an applicant.
+     *
+     * @param $email
+     * @param array $payload
+     *
+     * @throws \Neo\Exceptions\ConfigurationException
+     *
+     * @return mixed|void
+     */
+    public function register($email, array $payload)
     {
+        $this->httpClientSetOrFail()
+            ->authorizationTokenSetOrFail();
+
+        // TODO: complete validation rules
+//        $validation = (new Validator())->validate($payload, [
+//            'fullname' => 'required',
+//            'dial_code' => 'required',
+//        ]);
+//
+//        if ($validation->fails()) {
+//            throw new ValidationException('missing credential username or password');
+//        }
+
+        $response = $this->httpClient->post($this->getEndpoints('register.password'),
+            [
+                'form_params' => [
+                    'email'   => $email,
+                    'payload' => $payload,
+                ],
+                'headers' => [
+                    'Accept'        => 'application/json',
+                    'Authorization' => $this->getAuthorizationToken(),
+                ],
+            ]
+        );
+
+        if ($response->getStatusCode() != '200') {
+            return;
+        }
+
+        $raw = $response->getBody()->getContents();
+
+        if ($this->getConfig('raw_response')) {
+            return $raw;
+        }
+
+        return json_decode($raw);
     }
 }
