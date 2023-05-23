@@ -19,9 +19,9 @@ class Auth extends AbstractApi
         parent::configure();
 
         $this->endpoints = [
-            'token'  => '/api/v1/jwt/token-request',
-            'verify' => '/api/v1/jwt/token-verify',
-            'user'   => '/api/v1/sso/user/',
+            'token'  => 'token-request',
+            'verify' => 'token-verify',
+            'user'   => 'user',
         ];
     }
 
