@@ -21,8 +21,8 @@ class Student extends AbstractApi
         parent::configure();
 
         $this->endpoints = [
-            'organisation' => '/api/v1/dsa/report/student?org_code=%s&page=%s',
-            'summary'      => '/api/v1/dsa/report/student/%s?starttime=%s&endtime=%s',
+            'organisation' => 'report/student?org_code=%s&page=%s',
+            'summary'      => 'report/student/%s?starttime=%s&endtime=%s',
         ];
     }
 
