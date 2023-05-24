@@ -21,7 +21,7 @@ class Auth extends AbstractApi
         $this->endpoints = [
             'token'  => 'token-request',
             'verify' => 'token-verify',
-            'user'   => 'user',
+            'user'   => 'user/',
         ];
     }
 
